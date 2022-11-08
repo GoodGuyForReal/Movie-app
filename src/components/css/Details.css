@@ -1,0 +1,31 @@
+.Container{
+    /* background-image: linear-gradient(to right top, #070710, #0a0a0a, #04040b, #020214, #101011); */
+    background-repeat: no-repeat;
+    background-color: #000000;
+}
+
+.castList{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+
+
+/* .actAvatar{
+    background-image: url('../assets/profile-user.png');
+} */
+
+@media (max-width:950px) {
+    
+    .castList{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width:670px) {
+    
+    .castList{
+        grid-template-columns: 1fr;
+    }
+}
