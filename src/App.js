@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import Discover from "./components/pages/Discover";
 import { request } from "./Request";
 import ScrollToTop from "./components/ScrollToTop";
+import Person from "./components/pages/Person";
 
 
 
@@ -15,10 +16,11 @@ function App() {
 
       <Navbar />
       <ScrollToTop />
-      <Routes>       
+      <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Discover" element={<Discover fetchURL={request.requestPopular} />} />
         <Route path=":id" element={<MoviePageHero />} />
+        <Route path="/Person" element={<Person />} />
       </Routes>
       <Footer />
     </div>

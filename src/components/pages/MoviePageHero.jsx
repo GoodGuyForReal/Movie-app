@@ -17,7 +17,7 @@ const MoviePageHero = () => {
   const [mdb, setMdb] = useState([])
   const [video, setVideo] = useState([])
   const [castbtn, setCastbtn] = useState(4)
-  const [videolimit, Setvideolimit] = useState(15)
+  const [videoimit, Setvideolimit] = useState(15)
   const [genre, setGenre] = useState([])
   const [toggle, setToggle] = useState(true)
   const [recom, setRecom] = useState([])
@@ -82,7 +82,7 @@ const MoviePageHero = () => {
 
   }, [id])
 
-  console.log(recom)
+  const slicerecom = recom.slice(0, 6)
 
 
 
@@ -95,7 +95,7 @@ const MoviePageHero = () => {
   //? Trailer Link End
 
   //? Videos Section limit
-  const slicevideo = video.slice(0, videolimit)
+  const slicevideo = video.slice(0, 15)
   console.log(slicevideo);
   //? Videos Section end
 
@@ -111,7 +111,7 @@ const MoviePageHero = () => {
     return fam.popularity > 2.000 && fam.known_for_department === "Acting";
   })
   console.log(filterpop);
-  const slice = filterpop.slice(0, castbtn)
+  const slice = filterpop.slice(0, 4)
   console.log(slice);
   //? Cast end
 
@@ -304,14 +304,14 @@ const MoviePageHero = () => {
 
 
           <div>
-            {recom.length === 0 ? null : <div className="recomanded  py-10">
+            {slicerecom.length === 0 ? null : <div className="recomanded  py-10">
               <div>
-                <h1 className=' text-white text-[32px] font-semibold mb-3'>More Like This <span className='text-slate-400 text-[24px] font-normal'>(+{recom.length})</span></h1>
+                <h1 className=' text-white text-[32px] font-semibold mb-3'>More Like This <span className='text-slate-400 text-[24px] font-normal'>(+{slicerecom.length})</span></h1>
               </div>
 
               <div className="flex justify-center items-center ">
                 <div className="flex flex-wrap gap-6 items-center ">
-                  {recom.map((item, id) => (
+                  {slicerecom.map((item, id) => (
 
                     <MoviCard item={item} key={id} />
 
