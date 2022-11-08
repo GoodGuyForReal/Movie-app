@@ -6,6 +6,7 @@ import axios from 'axios'
 import { key } from '../../Request'
 import { PlayIcon, DarkPlayIcon } from '../assets/PlayIcon'
 import { UserIcon, UserIconSm } from '../assets/UserIcon'
+import MoviCard from '../MoviCard'
 
 
 const MoviePageHero = () => {
@@ -19,6 +20,7 @@ const MoviePageHero = () => {
   const [videolimit, Setvideolimit] = useState(15)
   const [genre, setGenre] = useState([])
   const [toggle, setToggle] = useState(true)
+  const [recom, setRecom] = useState([])
 
   const { id } = useParams();
   console.log(id);
@@ -72,6 +74,18 @@ const MoviePageHero = () => {
   console.log(video);
   //? Video End
 
+  useEffect(() => {
+    const url = `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${key}&language=en-US&page=1`
+
+    axios.get(url)
+      .then((res) => { setRecom(res.data.results) });
+
+  }, [id])
+
+  console.log(recom)
+
+
+
   //? Trailer Link
   const tariler = video.filter((item) => {
     return item.type === "Teaser" || item.type === "Trailer"
@@ -122,7 +136,7 @@ const MoviePageHero = () => {
 
   return (
     <div className='overflow-hidden'>
-     
+
       {!toggle && <div className='fixed z-[60] w-full h-full backdrop-blur-md'>
         <div className='fixed z-[55] flex justify-center w-full bottom-[12vh]'>
           <button onClick={() => trailerBtnHandlerClose()} className='py-2 px-7 bg-white text-black rounded-xl'>Close</button>
@@ -150,14 +164,14 @@ const MoviePageHero = () => {
           <div className='absolute h-[100vh] -z-0 w-full'>
             <div className="absolute -z-10 h-full w-full  bg-[#00000072]"></div>
             <div className="absolute -z-10 h-full w-full  bg-gradient-to-t from-[#00000013]"></div>
-            <img src={`https://image.tmdb.org/t/p/original${details?.backdrop_path}`} className='absolute -z-20 object-cover w-full h-full' alt={details?.backdrop_path} />
+            <img src={`https://image.tmdb.org/t/p/original${details?.backdrop_path}`} className='absolute -z-20 object-top object-cover w-full h-full' alt={details?.backdrop_path} />
           </div>
 
           <div className='flex flex-col justify-between'>
-            <div className='dhb absolute flex flex-col items-center justify-center h-full w-full gap-5'>
+            <div className='dhb top-[-50px] absolute flex flex-col items-center justify-center h-full w-full gap-5'>
 
               {/* title */}
-              <div className='w-[80%] text-center'>
+              <div className='w-[80%] top-0 text-center'>
                 <h1 className='text-white text-[110px] md:text-[90px] sm:text-[50px] leading-[120%] uppercase font-bold'>{details?.title}</h1>
               </div>
 
@@ -185,7 +199,7 @@ const MoviePageHero = () => {
                 {/* recomended Button */}
                 <button onClick={() => trailerBtnHandler()}>
                   <legend className='text-white mb-3 flex'><PlayIcon /> recommended</legend>
-                  <div className='w-[160px] h-[200px] border-[1px] border-white relative  flex items-center'>
+                  <div className='w-[25vh] h-[32vh] border-[1px] border-white relative  flex items-center'>
                     <button className='absolute h-[50px] w-[50px]  z-10 right-[-2px] bg-[#ffffff] text-white flex items-center text-center hover:right-[0px]  justify-center transition-[300ms] hover:h-full hover:w-full'><DarkPlayIcon /></button>
                     <img src={`https://image.tmdb.org/t/p/original${details?.poster_path}`} className='absolute  object-cover w-full h-full' alt={details?.poster_path} />
                   </div>
@@ -246,8 +260,8 @@ const MoviePageHero = () => {
             <h2 className='text-white text-[16px] leading-[170%] w-[60%] md:w-[100%] lg:w-[100%] xl:w-[60%]'>{details?.overview}</h2>
           </div>
 
-          <div className="cast">
-            <h1 className='text-white text-[32px] font-semibold mb-3'>Top Cast</h1>
+          <div className="cast  px-0 py-10">
+            <h1 className='text-white text-[32px] px-5 font-semibold mb-3'>Top Cast</h1>
 
             <div className='castList'>
               {filterpop.map((item, id) => (
@@ -265,10 +279,9 @@ const MoviePageHero = () => {
 
 
             </div>
-
-        
           </div>
-          {slicevideo.length === 0 ? null : <div className="videos text-white text-[32px] font-semibold mb-3">
+
+          {slicevideo.length === 0 ? null : <div className="videos text-white text-[32px] font-semibold   mb-3">
             <h1>Videos <span className='text-slate-400 text-[24px] font-normal'>(+{slicevideo.length})</span></h1>
             <div className='detailsVideos scrollbar-hide flex gap-7 overflow-x-auto mt-4'>
               {slicevideo.map((item, id) => (
@@ -290,12 +303,32 @@ const MoviePageHero = () => {
           </div>}
 
 
-          <div className="recomanded"></div>
+          <div>
+            {recom.length === 0 ? null : <div className="recomanded  py-10">
+              <div>
+                <h1 className=' text-white text-[32px] font-semibold mb-3'>More Like This <span className='text-slate-400 text-[24px] font-normal'>(+{recom.length})</span></h1>
+              </div>
+
+              <div className="flex justify-center items-center ">
+                <div className="flex flex-wrap gap-6 items-center ">
+                  {recom.map((item, id) => (
+
+                    <MoviCard item={item} key={id} />
+
+                  ))}
+
+                </div>
+              </div>
+            </div>}
+          </div>
+
+
         </div>
 
-      </section>
 
-    </div>
+      </section >
+
+    </div >
   )
 }
 
