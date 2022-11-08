@@ -120,8 +120,6 @@ const MoviePageHero = () => {
   //? Trailer PopUp Ends
 
 
-
-
   return (
     <div className='overflow-hidden'>
      
@@ -136,7 +134,7 @@ const MoviePageHero = () => {
             allow='autoplay; encrypted-media'
             allowFullScreen
             title='video'
-            className='bg-slate-400 rounded-xl'
+            className='bg-[#bdbdbd] rounded-xl'
             height={'500px'}
             width={'900px'}
           />
@@ -184,12 +182,14 @@ const MoviePageHero = () => {
             <div className='headerDetailsBottom absolute bottom-8 flex justify-center gap-7 w-full px-10'>
               <div className='flex justify-between items-end w-full'>
 
-                {/* Arrow Button */}
-                <div className='flex gap-5'>
-                  <button className="py-3 px-7 bg-[#00000074] border text-white font-semibold text-[13px] rounded-[12px] backdrop-blur-md flex items-center text-center hover:bg-[#282828a0] hover:transition-[300ms]">Back</button>
-
-                  <button className="py-3 px-7 bg-[#ffffff74] text-white font-semibold text-[13px] rounded-[12px] backdrop-blur-md flex items-center text-center hover:bg-[#ffffffa0] hover:transition-[300ms]">Next</button>
-                </div>
+                {/* recomended Button */}
+                <button onClick={() => trailerBtnHandler()}>
+                  <legend className='text-white mb-3 flex'><PlayIcon /> recommended</legend>
+                  <div className='w-[160px] h-[200px] border-[1px] border-white relative  flex items-center'>
+                    <button className='absolute h-[50px] w-[50px]  z-10 right-[-2px] bg-[#ffffff] text-white flex items-center text-center hover:right-[0px]  justify-center transition-[300ms] hover:h-full hover:w-full'><DarkPlayIcon /></button>
+                    <img src={`https://image.tmdb.org/t/p/original${details?.poster_path}`} className='absolute  object-cover w-full h-full' alt={details?.poster_path} />
+                  </div>
+                </button>
 
                 {/* trailer Button */}
                 <button onClick={() => trailerBtnHandler()}>
@@ -266,6 +266,7 @@ const MoviePageHero = () => {
 
             </div>
 
+        
           </div>
           {slicevideo.length === 0 ? null : <div className="videos text-white text-[32px] font-semibold mb-3">
             <h1>Videos <span className='text-slate-400 text-[24px] font-normal'>(+{slicevideo.length})</span></h1>

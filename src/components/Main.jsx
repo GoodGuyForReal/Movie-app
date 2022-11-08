@@ -29,7 +29,7 @@ const Main = () => {
     <div className="container mx-auto px-0 overflow-hidden">
       <section className="h-[80vh] w-full text-white">
         <div className="w-full h-full relative">
-          <div className="absolute z-20 h-[80vh] w-full  bg-gradient-to-t from-black"></div>
+          <div className="absolute z-20  bottom-0 top-[10%] w-full  bg-gradient-to-t  from-black"></div>
           <img
             className="absolute w-full h-full object-cover object-top"
             src={`https://image.tmdb.org/t/p/original${movie?.backdrop_path}`}

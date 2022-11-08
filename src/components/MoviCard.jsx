@@ -14,7 +14,7 @@ const MoviCard = ({ item, id }) => {
             
             {item?.poster_path === null ? null : <div key={id} className=" rounded-[35px] " >
 
-                <div className=" relative flex flex-col gap-3 py-3 cursor-pointer" onClick={() => navigate(`/${item?.id}`, { state: item })}>
+                <div  className=" relative flex flex-col gap-3 py-3 cursor-pointer" onClick={() => navigate(`/${item?.id}`, { state: item })}>
 
                     <div className="relative w-[300px] h-[400px]">
                         <div className="absolute z-10 bg-gradient-to-t from-[#00000089] h-full w-full rounded-[35px]"></div>

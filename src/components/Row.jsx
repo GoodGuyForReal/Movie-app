@@ -19,7 +19,7 @@ const Row = ({ title, fetchURL }) => {
   console.log(movie);
 
   return (
-    <div className="container mx-auto px-20 md:px-10 sm:px-6  py-[60px]">
+    <div className="container mx-auto px-20 md:px-10 sm:px-6 py-[60px]">
       <div className="mb-[25px]">
         <h2 className="text-white font-bold text-[32px]">{title}</h2>
       </div>
