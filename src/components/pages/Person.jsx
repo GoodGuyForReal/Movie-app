@@ -69,9 +69,9 @@ const Person = () => {
   }
 
   const LessHandler = () => {
-    if (creditlimt > 10) {
-      setCreditlimt(pre => pre - 10)
-    }
+
+    setCreditlimt(10)
+
   }
 
 
