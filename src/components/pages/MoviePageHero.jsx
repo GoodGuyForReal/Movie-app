@@ -7,6 +7,7 @@ import { key } from '../../Request'
 import { PlayIcon, DarkPlayIcon } from '../assets/PlayIcon'
 import { UserIcon, UserIconSm } from '../assets/UserIcon'
 import MoviCard from '../MoviCard'
+import PersonCard from '../PersonCard'
 
 
 const MoviePageHero = () => {
@@ -16,8 +17,6 @@ const MoviePageHero = () => {
 
   const [mdb, setMdb] = useState([])
   const [video, setVideo] = useState([])
-  const [castbtn, setCastbtn] = useState(4)
-  const [videoimit, Setvideolimit] = useState(15)
   const [genre, setGenre] = useState([])
   const [toggle, setToggle] = useState(true)
   const [recom, setRecom] = useState([])
@@ -59,21 +58,23 @@ const MoviePageHero = () => {
     });
 
   }, [id]);
-  //? Cast Ends
+
+    //? Cast Ends
 
 
-  //? Video
-  useEffect(() => {
-    const url = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${key}&language=en-US`
+    //? Video
+    useEffect(() => {
+      const url = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${key}&language=en-US`
 
-    axios.get(url).then((res) => {
-      setVideo(res.data.results);
-    });
+      axios.get(url).then((res) => {
+        setVideo(res.data.results);
+      });
 
-  }, [id]);
+    }, [id]);
   console.log(video);
   //? Video End
 
+  //? Recomendations
   useEffect(() => {
     const url = `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${key}&language=en-US&page=1`
 
@@ -83,7 +84,7 @@ const MoviePageHero = () => {
   }, [id])
 
   const slicerecom = recom.slice(0, 6)
-
+  //? Recomendations end
 
 
   //? Trailer Link
@@ -182,7 +183,7 @@ const MoviePageHero = () => {
                 {directing[0]?.name ? <p className="py-3 px-9 bg-[#00000015] border text-white font-semibold text-[13px] rounded-[12px] backdrop-blur-[2px] ">By <span className='underline'>{directing[0]?.name}</span></p> : null}
 
                 {/* Year */}
-                <p className="py-3 px-9 bg-[#00000015] border text-white font-semibold text-[13px] rounded-[12px] backdrop-blur-[2px]">IMDB: {details.vote_average}</p>
+                <p className="py-3 px-9 bg-[#00000015] border text-white font-semibold text-[13px] rounded-[12px] backdrop-blur-[2px]">IMDB: {details.vote_average.toFixed(1)}</p>
 
                 {/* imdb */}
                 <p className="py-3 px-9 bg-[#00000015] border text-white font-semibold text-[13px] rounded-[12px] backdrop-blur-[2px]">{reyear()}</p>
@@ -197,13 +198,16 @@ const MoviePageHero = () => {
               <div className='flex justify-between items-end w-full'>
 
                 {/* recomended Button */}
-                <button onClick={() => trailerBtnHandler()}>
-                  <legend className='text-white mb-3 flex'><PlayIcon /> recommended</legend>
-                  <div className='w-[25vh] h-[32vh] border-[1px] border-white relative  flex items-center'>
-                    <button className='absolute h-[50px] w-[50px]  z-10 right-[-2px] bg-[#ffffff] text-white flex items-center text-center hover:right-[0px]  justify-center transition-[300ms] hover:h-full hover:w-full'><DarkPlayIcon /></button>
-                    <img src={`https://image.tmdb.org/t/p/original${details?.poster_path}`} className='absolute  object-cover w-full h-full' alt={details?.poster_path} />
+                {slicerecom.map((item, id) => {
+                  <div key={id} onClick={() => trailerBtnHandler()}>
+                    <legend className='text-white mb-3 flex'><PlayIcon /> recommended</legend>
+                    <div className='w-[25vh] h-[32vh] border-[1px] border-white relative  flex items-center'>
+                      <button className='absolute h-[50px] w-[50px]  z-10 right-[-2px] bg-[#ffffff] text-white flex items-center text-center hover:right-[0px]  justify-center transition-[300ms] hover:h-full hover:w-full'><DarkPlayIcon /></button>
+                      <img src={`https://image.tmdb.org/t/p/original${item?.poster_path}`} className='absolute  object-cover w-full h-full' alt={item?.poster_path} />
+                    </div>
                   </div>
-                </button>
+                })}
+
 
                 {/* trailer Button */}
                 <button onClick={() => trailerBtnHandler()}>
@@ -265,15 +269,16 @@ const MoviePageHero = () => {
 
             <div className='castList'>
               {filterpop.map((item, id) => (
-                <div key={id} className='castCard flex flex-col p-3 gap-6'>
-                  <div className='flex gap-3 items-center'>
-                    {item?.profile_path === null ? <UserIcon /> : <img src={`https://image.tmdb.org/t/p/original${item?.profile_path}`} alt={item?.name} className='actAvatar w-[100px] h-[100px] object-cover rounded-full' />}
-                    <div>
-                      <p className='text-white text-[20px] font-medium mb-2'>{item?.name}</p>
-                      <p className='text-slate-400 text-[15px] font-normal'>{item?.character}</p>
-                    </div>
-                  </div>
-                </div>
+                // <div key={id} className='castCard flex flex-col p-3 gap-6'>
+                //   <div className='flex gap-3 items-center'>
+                //     {item?.profile_path === null ? <UserIcon /> : <img src={`https://image.tmdb.org/t/p/original${item?.profile_path}`} alt={item?.name} className='actAvatar w-[100px] h-[100px] object-cover rounded-full' />}
+                //     <div>
+                //       <p className='text-white text-[20px] font-medium mb-2'>{item?.name}</p>
+                //       <p className='text-slate-400 text-[15px] font-normal'>{item?.character}</p>
+                //     </div>
+                //   </div>
+                // </div>
+                <PersonCard item={item} key={id} />
               ))}
 
 

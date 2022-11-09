@@ -20,7 +20,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/Discover" element={<Discover fetchURL={request.requestPopular} />} />
         <Route path=":id" element={<MoviePageHero />} />
-        <Route path="/Person" element={<Person />} />
+        <Route path="/Person/:id" element={<Person />} />
       </Routes>
       <Footer />
     </div>
