@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { useParams, useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import { key } from '../../Request'
 
 const Person = () => {
@@ -16,7 +16,7 @@ const Person = () => {
 
     axios.get(url).then((res) =>
       setPerdetails(res.data))
-  }, [])
+  }, [id])
 
   console.log(perdetails);
 
@@ -29,7 +29,7 @@ const Person = () => {
     axios.get(url).then((res) =>
       setPerimages(res.data.results))
 
-  }, [])
+  }, [id])
 
   const limtPerImg = perimages.slice(0, 10)
   console.log(perimages);
