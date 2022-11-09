@@ -91,6 +91,7 @@ const Person = () => {
             <p className=''>{perdetails?.birthday}</p>
             <p className=''>{perdetails?.place_of_birth}</p>
             <div>
+              {/*todo: TEXTI ARRAY YE CEVIR SONRA LENGTINI ALIP BUTONU GIZLEYEBILIRSIN */}
               {showMore ? <p className='w-[90%] leading-[190%] '>{perdetails?.biography}</p> : turncate(perdetails?.biography, 800)}
               {/* <p className='w-[90%] leading-[190%] '>{perdetails?.biography}</p> */}
               {perdetails?.biography < 800 ? <button>Empty</button> : <button onClick={() => setShowMore(!showMore)} className='underline'>{!showMore ? '...Show More' : '...Show less'}</button>}
@@ -129,9 +130,12 @@ const Person = () => {
                 </div>
               </div>
 
-              <div className='flex gap-5 justify-center'>
-                <button className='py-2 px-6 bg-white text-black rounded-lg duration-300 hover:bg-[#c5c5c5]' onClick={LoadHandler}>Load More</button>
-                <button className='py-2 px-6 bg-black text-white border rounded-lg hover:bg-white hover:text-black duration-300' onClick={LessHandler}>Less</button>
+              <div className='creditbtns'>
+                {personCredits.length < 10 ? null : <div className='flex gap-5 justify-center'>
+                  <button className='py-2 px-6 bg-white text-black rounded-lg duration-300 hover:bg-[#c5c5c5]' onClick={LoadHandler}>Load More</button>
+                  <button className='py-2 px-6 bg-black text-white border rounded-lg hover:bg-white hover:text-black duration-300' onClick={LessHandler}>Less</button>
+                </div>}
+
               </div>
 
             </div>
