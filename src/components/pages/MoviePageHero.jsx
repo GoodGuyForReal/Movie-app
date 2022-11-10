@@ -269,6 +269,7 @@ const MoviePageHero = () => {
           </div>
 
           <div className='overview py-2'>
+            <h1 className='text-white text-[16px]'>{details?.release_date}</h1>
             <h1 className='text-white text-[32px] font-semibold mb-3'>{details?.title}</h1>
             <h2 className='text-white text-[16px] leading-[170%] w-[60%] md:w-[100%] lg:w-[100%] xl:w-[60%]'>{details?.overview}</h2>
           </div>

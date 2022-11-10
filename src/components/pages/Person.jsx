@@ -77,7 +77,7 @@ const Person = () => {
 
 
   return (
-    <div className='Container text-white py-20 px-20'>
+    <div className='Container text-white py-20 px-20 overflow-hidden md:px-10 sm:px-5'>
       <div className='PersonBody mt-10'>
 
         <div className='PersonHeader w-full h-full gap-5'>
@@ -104,7 +104,7 @@ const Person = () => {
 
           <div className='Perimglist'>
             <h1 className='text-[32px] font-medium'>Images</h1>
-            <div className='perimgs flex flex-wrap gap-5 py-10'>
+            <div className='perimgs grid grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 gap-5 py-10'>
               {limtPerImg.map((item, id) => (
                 <div key={id}>
                   <img src={`https://image.tmdb.org/t/p/original${item?.file_path}`} alt={item?.name} className='object-cover object-center h-[63vh] w-[42vh]' />
@@ -122,7 +122,7 @@ const Person = () => {
 
             <div className='CreditList text-center '>
               <div className="flex justify-center items-center py-10">
-                <div className="flex flex-wrap gap-6 justify-center items-center ">
+                <div className="flex flex-wrap gap-6  items-center ">
                   {personCredits.slice(0, creditlimt).map((item, id) => (
                     <MoviCard item={item} key={id} />
                   ))}
