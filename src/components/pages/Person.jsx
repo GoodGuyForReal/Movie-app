@@ -64,14 +64,18 @@ const Person = () => {
     }
   };
 
+  const age = (i) => {
+    const year = i;
+    return year.slice(0, 4);
+  }
+  
+
   const LoadHandler = () => {
     setCreditlimt(pre => pre + 10)
   }
 
   const LessHandler = () => {
-
     setCreditlimt(10)
-
   }
 
 
