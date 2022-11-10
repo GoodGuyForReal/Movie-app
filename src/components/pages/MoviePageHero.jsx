@@ -20,6 +20,7 @@ const MoviePageHero = () => {
   const [genre, setGenre] = useState([])
   const [toggle, setToggle] = useState(true)
   const [recom, setRecom] = useState([])
+  const [platform, setPlaforms] = useState([])
 
   const { id } = useParams();
   console.log(id);
@@ -58,19 +59,17 @@ const MoviePageHero = () => {
     });
 
   }, [id]);
+  //? Cast Ends
 
-    //? Cast Ends
+  //? Video
+  useEffect(() => {
+    const url = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${key}&language=en-US`
 
+    axios.get(url).then((res) => {
+      setVideo(res.data.results);
+    });
 
-    //? Video
-    useEffect(() => {
-      const url = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${key}&language=en-US`
-
-      axios.get(url).then((res) => {
-        setVideo(res.data.results);
-      });
-
-    }, [id]);
+  }, [id]);
   console.log(video);
   //? Video End
 
@@ -82,9 +81,19 @@ const MoviePageHero = () => {
       .then((res) => { setRecom(res.data.results) });
 
   }, [id])
-
   const slicerecom = recom.slice(0, 6)
   //? Recomendations end
+
+
+  // useEffect(() => {
+  //   const url = `
+  //   https://api.themoviedb.org/3/watch/providers/movie?api_key=${key}&language=en-US`
+
+  //   axios.get(url).then(res => {
+  //     setPlaforms(res.data.results)
+  //   })
+  // }, [id])
+  // console.log(platform)
 
 
   //? Trailer Link
