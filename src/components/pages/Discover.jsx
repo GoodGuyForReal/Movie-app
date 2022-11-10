@@ -64,7 +64,7 @@ const Discover = ({ fetchURL }) => {
 
 
   return (
-    <div className='px-20 py-10'>
+    <div className='px-20 lg:px-10 sm:px-5 py-10'>
       <div className='flex flex-col h-[30vh] w-full justify-center gap-5 items-center'>
         <h1 className='text-white text-[38px] font-semibold'>Discover Beyond of the Universe</h1>
         <input type="text" onChange={(e) => setSearch(e.target.value)} placeholder="Search a movie or person" className='text-[18px] w-[100vh] px-5 py-3 rounded-xl ' />
@@ -89,7 +89,7 @@ const Discover = ({ fetchURL }) => {
 
         </div>
       </div> : <div className="flex justify-center items-center py-10">
-        <div className="flex flex-wrap gap-6 justify-center items-center ">
+        <div className="grid grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-6 justify-center items-center ">
 
           {
             serach === '' ? perlist.map((item, id) => (

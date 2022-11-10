@@ -68,7 +68,7 @@ const Person = () => {
     const year = i;
     return year.slice(0, 4);
   }
-  
+
 
   const LoadHandler = () => {
     setCreditlimt(pre => pre + 10)
@@ -98,7 +98,7 @@ const Person = () => {
               {/*todo: TEXTI ARRAY YE CEVIR SONRA LENGTINI ALIP BUTONU GIZLEYEBILIRSIN */}
               {showMore ? <p className='w-[90%] leading-[190%] '>{perdetails?.biography}</p> : turncate(perdetails?.biography, 800)}
               {/* <p className='w-[90%] leading-[190%] '>{perdetails?.biography}</p> */}
-              {perdetails?.biography < 800 ? <button>Empty</button> : <button onClick={() => setShowMore(!showMore)} className='underline'>{!showMore ? '...Show More' : '...Show less'}</button>}
+              {perdetails?.biography < 800 ? null : <button onClick={() => setShowMore(!showMore)} className='underline'>{!showMore ? '...Show More' : '...Show less'}</button>}
             </div>
           </div>
 
@@ -118,7 +118,7 @@ const Person = () => {
             </div>
           </div>
 
-          <div className='PersonCredits '>
+          {personCredits.length > 0 && <div className='PersonCredits '>
 
             <div className='flex'>
               <h1 className='text-white text-[32px] font-medium'>Movies <span className='text-slate-400 text-[24px] font-normal'>(+{personCredits.length})</span></h1>
@@ -144,7 +144,7 @@ const Person = () => {
 
             </div>
 
-          </div>
+          </div>}
 
         </div>
 
