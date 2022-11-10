@@ -74,7 +74,7 @@ const Discover = ({ fetchURL }) => {
         </div>
       </div>
 
-      {!isActive ? <div className="flex justify-center items-center py-10">
+      {isActive ? <div className="flex justify-center items-center py-10">
         <div className="flex flex-wrap gap-6 justify-center items-center ">
 
           {
