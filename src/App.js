@@ -8,8 +8,6 @@ import { request } from "./Request";
 import ScrollToTop from "./components/ScrollToTop";
 import Person from "./components/pages/Person";
 
-
-
 function App() {
   return (
     <div>
