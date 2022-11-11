@@ -26,7 +26,6 @@ const Deneme = ({ title, fetchURL }) => {
       <div className="mb-[25px]">
         <h2 className="text-white font-bold text-[32px]">{title}</h2>
       </div>
-
       <Swiper
         freeMode={true}
         grabCursor={true}

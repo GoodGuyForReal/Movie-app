@@ -4,8 +4,13 @@ import { PlayIcon } from './assets/PlayIcon'
 import { useNavigate } from "react-router-dom";
 import './css/Row.css'
 
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { FreeMode } from 'swiper'
+import 'swiper/css'
+import 'swiper/css/free-mode'
 
-const Row = ({ title, fetchURL }) => {
+
+const Deneme = ({ title, fetchURL }) => {
   const [movie, setMovie] = useState([]);
   const navigate = useNavigate();
 
@@ -16,20 +21,25 @@ const Row = ({ title, fetchURL }) => {
     });
   }, [fetchURL]);
 
-  console.log(movie);
-
   return (
     <div className="container mx-auto px-20 md:px-10 sm:px-6 py-[60px]">
       <div className="mb-[25px]">
         <h2 className="text-white font-bold text-[32px]">{title}</h2>
       </div>
-      <div className="flex relative items-center">
-        <div id="slider" className="scrollbar-hide flex gap-4 overflow-x-auto">
-
+      <Swiper
+        freeMode={true}
+        grabCursor={true}
+        modules={[FreeMode]}
+        className='mySwiper'
+        slidesPerView={4.3}
+        spaceBetween={15}
+       
+      >
+        
           {movie.map((item, id) => (
-
+            <SwiperSlide key={id}>
             <div key={id} className="rowCrad flex flex-col relative cursor-pointer" onClick={() => navigate(`/${item?.id}`, { state: item })}>
-              <div className="w-[300px] h-[180px] rounded-b-[12px]">
+              <div className="w-full h-[25vh] rounded-b-[12px]">
                 <img
                   className="w-full h-full object-cover  rounded-[12px]"
                   src={`https://image.tmdb.org/t/p/w500${item?.backdrop_path}`}
@@ -37,7 +47,7 @@ const Row = ({ title, fetchURL }) => {
                 />
               </div>
 
-              <div className="absolute flex justify-between bottom-0 bg-[#00000075] w-[300px] pt-2 backdrop-blur-sm rounded-b-[12px] ">
+              <div className="absolute flex justify-between bottom-0 bg-[#00000075] w-full pt-2 backdrop-blur-sm rounded-b-[12px] ">
                 <div>
                   <p className="text-white px-5 ">{item?.title}</p>
                   <p className="text-white px-5 pb-2">release: {item?.release_date}</p>
@@ -48,16 +58,14 @@ const Row = ({ title, fetchURL }) => {
                 </div>
               </div>
             </div>
-
+            </SwiperSlide>
           ))}
-
-        </div>
-      </div>
-
+       
+      </Swiper>
     </div>
- 
- 
- );
+
+
+  );
 };
 
-export default Row;
+export default Deneme;

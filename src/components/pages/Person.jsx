@@ -125,7 +125,7 @@ const Person = () => {
             </div>
 
             <div className='CreditList text-center '>
-              <div className="flex justify-center items-center py-10">
+              <div className="flex items-center py-10">
                 <div className="flex flex-wrap gap-6  items-center ">
                   {personCredits.slice(0, creditlimt).map((item, id) => (
                     <MoviCard item={item} key={id} />

@@ -69,8 +69,7 @@ const Discover = ({ fetchURL }) => {
         <h1 className='text-white text-[38px] font-semibold'>Discover Beyond of the Universe</h1>
         <input type="text" onChange={(e) => setSearch(e.target.value)} placeholder="Search a movie or person" className='text-[18px] w-[100vh] px-5 py-3 rounded-xl ' />
         <div className='flex gap-5'>
-          <button onClick={() => setIsActive(!isActive)} className='text-white py-2 px-6 border rounded-lg hover:text-black hover:bg-white hover:duration-300'>Movie</button>
-          <button onClick={() => setIsActive(!isActive)} className='text-white py-2 px-6 border rounded-lg hover:text-black hover:bg-white hover:duration-300'>Person</button>
+          <button onClick={() => setIsActive(!isActive)} className='text-white py-2 px-6 border rounded-lg hover:text-black hover:bg-white hover:duration-300'>{!isActive ? 'Movie' : 'Person'}</button>
         </div>
       </div>
 
@@ -88,6 +87,7 @@ const Discover = ({ fetchURL }) => {
           }
 
         </div>
+     
       </div> : <div className="flex justify-center items-center py-10">
         <div className="grid grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-6 justify-center items-center ">
 

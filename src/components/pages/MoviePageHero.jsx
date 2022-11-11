@@ -9,6 +9,11 @@ import { UserIcon, UserIconSm } from '../assets/UserIcon'
 import MoviCard from '../MoviCard'
 import PersonCard from '../PersonCard'
 
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation } from 'swiper'
+import 'swiper/css'
+import 'swiper/css/free-mode'
+
 
 const MoviePageHero = () => {
 
@@ -20,7 +25,7 @@ const MoviePageHero = () => {
   const [genre, setGenre] = useState([])
   const [toggle, setToggle] = useState(true)
   const [recom, setRecom] = useState([])
-  const [platform, setPlaforms] = useState([])
+
 
   const { id } = useParams();
   console.log(id);
@@ -84,18 +89,6 @@ const MoviePageHero = () => {
   const slicerecom = recom.slice(0, 6)
   //? Recomendations end
 
-
-  // useEffect(() => {
-  //   const url = `
-  //   https://api.themoviedb.org/3/watch/providers/movie?api_key=${key}&language=en-US`
-
-  //   axios.get(url).then(res => {
-  //     setPlaforms(res.data.results)
-  //   })
-  // }, [id])
-  // console.log(platform)
-
-
   //? Trailer Link
   const tariler = video.filter((item) => {
     return item.type === "Teaser" || item.type === "Trailer"
@@ -142,6 +135,9 @@ const MoviePageHero = () => {
   }
 
   //? Trailer PopUp Ends
+
+
+
 
 
   return (
@@ -279,15 +275,6 @@ const MoviePageHero = () => {
 
             <div className='castList'>
               {filterpop.map((item, id) => (
-                // <div key={id} className='castCard flex flex-col p-3 gap-6'>
-                //   <div className='flex gap-3 items-center'>
-                //     {item?.profile_path === null ? <UserIcon /> : <img src={`https://image.tmdb.org/t/p/original${item?.profile_path}`} alt={item?.name} className='actAvatar w-[100px] h-[100px] object-cover rounded-full' />}
-                //     <div>
-                //       <p className='text-white text-[20px] font-medium mb-2'>{item?.name}</p>
-                //       <p className='text-slate-400 text-[15px] font-normal'>{item?.character}</p>
-                //     </div>
-                //   </div>
-                // </div>
                 <PersonCard item={item} key={id} />
               ))}
 
@@ -296,9 +283,10 @@ const MoviePageHero = () => {
             </div>
           </div>
 
-          {slicevideo.length === 0 ? null : <div className="videos text-white text-[32px] font-semibold   mb-3">
+          {/* {slicevideo.length === 0 ? null : <div className="videos text-white text-[32px] font-semibold   mb-3">
             <h1>Videos <span className='text-slate-400 text-[24px] font-normal'>(+{slicevideo.length})</span></h1>
-            <div className='detailsVideos scrollbar-hide flex gap-7 overflow-x-auto mt-4'>
+            <div className='detailsVideos sm:scrollbar-hide flex gap-7 overflow-x-auto mt-4 pb-7'>
+
               {slicevideo.map((item, id) => (
                 <div key={id}>
                   <iframe src={`https://www.youtube.com/embed/${item?.key}`}
@@ -314,9 +302,54 @@ const MoviePageHero = () => {
                   <p className='text-white text-[18px] mt-3 w-[60%]'>{item?.name}</p>
                 </div>
               ))}
-            </div>
-          </div>}
 
+            </div>
+          </div>} */}
+
+
+
+          <div className="videos text-white text-[32px] font-semibold   mb-3">
+            <h1>Videos <span className='text-slate-400 text-[24px] font-normal'>(+{slicevideo.length})</span></h1>
+            <div className='detailsVideos sm:scrollbar-hide flex gap-7 overflow-x-auto mt-4 pb-7'>
+
+
+              <Swiper
+                modules={[Navigation]}
+                className='mySwiper'
+                speed={800}
+                slidesPerView={2.8}
+                navigation
+              >
+
+                {slicevideo.map((item, id) => (
+                  <SwiperSlide key={id}>
+                    <div key={id}>
+                      <iframe src={`https://www.youtube.com/embed/${item?.key}`}
+                        frameBorder='0'
+                        allow='autoplay; encrypted-media'
+                        allowFullScreen
+                        title='video'
+                        className='bg-slate-400 rounded-xl'
+                        height={'400px'}
+                        width={'500px'}
+                      />
+                      <p className='text-white text-[18px] mt-3 w-[60%]'>{item?.name}</p>
+                    </div>
+                  </SwiperSlide>
+                ))}
+                <div class="swiper-button-prev bg-white">NEXT</div>
+                <div class="swiper-button-next bg-white">BACK</div>
+              </Swiper>
+
+
+
+
+
+
+
+
+            </div>
+          </div>
 
           <div>
             {slicerecom.length === 0 ? null : <div className="recomanded  py-10">

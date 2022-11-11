@@ -10,7 +10,7 @@ const Home = () => {
     <>
       <Main />
       <Row title="UpComing" fetchURL={request.requestUpcoming} />
-      <Deneme title="UpComing" fetchURL={request.requestUpcoming} />
+      {/* <Deneme title="UpComing" fetchURL={request.requestUpcoming} /> */}
       <TopRatedSec title="Popular Movies" fetchURL={request.requestPopular} />
     </>
   );
