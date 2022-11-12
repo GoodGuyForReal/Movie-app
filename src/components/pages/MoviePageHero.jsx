@@ -138,19 +138,33 @@ const MoviePageHero = () => {
   }
   //? Trailer PopUp Ends
 
-  const box = document.querySelector('.detailsVideos');
+  
+
+  // const btnNextHandle = () => {
+  //   const box = document.querySelector('.detailsVideos');
+  //   let width = box.clientWidth
+  //   box.scrollLeft = box.scrollLeft - width;
+  //   console.log(width)
+  // }
+
+  // const btnBackHandle = () => {
+  //   const box = document.querySelector('.detailsVideos');
+  //   let width = box.clientWidth
+  //   box.scrollLeft = box.scrollLeft + width;
+  //   console.log(width)
+  // }
+
 
   const btnNextHandle = () => {
-    let width = box.clientWidth
-    box.scrollLeft = box.scrollLeft - width;
-    console.log(width)
+    const box = document.querySelector('.detailsVideos');
+    box.scrollLeft = box.scrollLeft - 500
   }
 
   const btnBackHandle = () => {
-    let width = box.clientWidth
-    box.scrollLeft = box.scrollLeft + width;
-    console.log(width)
+    const box = document.querySelector('.detailsVideos');
+    box.scrollLeft = box.scrollLeft + 500
   }
+
 
 
 
@@ -302,7 +316,7 @@ const MoviePageHero = () => {
             <h1>Videos <span className='text-slate-400 text-[24px] font-normal'>(+{slicevideo.length})</span></h1>
 
             <div className='flex relative w-full group '>
-              <button onClick={btnNextHandle} className="swiper-button-prev group-hover:block  hover:opacity-100 absolute left-0 z-10 bg-[#00000068] top-0 bottom-[15%]  text-white"> <ArrowLeft /> </button>
+              <button onClick={btnNextHandle} className="swiper-button-prev group-hover:block  hover:opacity-100 absolute left-0 z-10 bg-[#00000068] top-0 bottom-[13%]  text-white"> <ArrowLeft /> </button>
               <div className='detailsVideos scrollbar-hide flex w-full gap-7 overflow-x-auto mt-4 pb-7 scroll-smooth'>
                 {slicevideo.map((item, id) => (
                   <div key={id}>
@@ -319,7 +333,7 @@ const MoviePageHero = () => {
                   </div>
                 ))}
               </div>
-              <button onClick={btnBackHandle} className="swiper-button-next absolute z-10 right-0 hover:opacity-100 group-hover:block bg-[#00000068] top-0 bottom-[15%] text-white"><ArrowRight /></button>
+              <button onClick={btnBackHandle} className="swiper-button-next absolute z-10 right-0 hover:opacity-100 group-hover:block bg-[#00000068] top-0 bottom-[13%] text-white"><ArrowRight /></button>
             </div>
 
 

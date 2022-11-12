@@ -23,19 +23,17 @@ const Deneme = ({ title, fetchURL }) => {
     });
   }, [fetchURL]);
 
-  const box = document.querySelector('.rowVideos');
 
   const btnNextHandle = () => {
-    let width = box.clientWidth
-    box.scrollLeft = box.scrollLeft - width;
-    console.log(width)
+    const box = document.querySelector('.rowVideos');
+    box.scrollLeft = box.scrollLeft - 500
   }
 
   const btnBackHandle = () => {
-    let width = box.clientWidth
-    box.scrollLeft = box.scrollLeft + width;
-    console.log(width)
+    const box = document.querySelector('.rowVideos');
+    box.scrollLeft = box.scrollLeft + 500
   }
+
 
 
   return (
@@ -49,7 +47,7 @@ const Deneme = ({ title, fetchURL }) => {
           {movie.map((item, id) => (
 
             <div key={id} className="rowCrad flex flex-col relative cursor-pointer" onClick={() => navigate(`/${item?.id}`, { state: item })}>
-              <div className="w-[300px] h-[25vh] rounded-b-[12px]">
+              <div className="w-[400px] h-[25vh] rounded-b-[12px]">
                 <img
                   className="w-full h-full object-cover  rounded-[12px]"
                   src={`https://image.tmdb.org/t/p/w500${item?.backdrop_path}`}
