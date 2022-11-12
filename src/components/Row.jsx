@@ -8,6 +8,8 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { FreeMode } from 'swiper'
 import 'swiper/css'
 import 'swiper/css/free-mode'
+import ArrowLeft from "./assets/ArrowLeft";
+import ArrowRight from "./assets/ArrowRight";
 
 
 const Deneme = ({ title, fetchURL }) => {
@@ -21,25 +23,33 @@ const Deneme = ({ title, fetchURL }) => {
     });
   }, [fetchURL]);
 
+  const box = document.querySelector('.rowVideos');
+
+  const btnNextHandle = () => {
+    let width = box.clientWidth
+    box.scrollLeft = box.scrollLeft - width;
+    console.log(width)
+  }
+
+  const btnBackHandle = () => {
+    let width = box.clientWidth
+    box.scrollLeft = box.scrollLeft + width;
+    console.log(width)
+  }
+
+
   return (
     <div className="container mx-auto px-20 md:px-10 sm:px-6 py-[60px]">
       <div className="mb-[25px]">
         <h2 className="text-white font-bold text-[32px]">{title}</h2>
       </div>
-      <Swiper
-        freeMode={true}
-        grabCursor={true}
-        modules={[FreeMode]}
-        className='mySwiper'
-        slidesPerView={4.3}
-        spaceBetween={15}
-       
-      >
-        
+      <div className='flex relative w-full group '>
+        <button onClick={btnNextHandle} className="swiper-button-prev group-hover:block  hover:opacity-100 absolute left-0 z-10 bg-[#00000090] top-0 bottom-0  text-white"> <ArrowLeft /> </button>
+        <div className='rowVideos scrollbar-hide flex gap-4 overflow-x-hidden scroll-smooth'>
           {movie.map((item, id) => (
-            <SwiperSlide key={id}>
+
             <div key={id} className="rowCrad flex flex-col relative cursor-pointer" onClick={() => navigate(`/${item?.id}`, { state: item })}>
-              <div className="w-full h-[25vh] rounded-b-[12px]">
+              <div className="w-[300px] h-[25vh] rounded-b-[12px]">
                 <img
                   className="w-full h-full object-cover  rounded-[12px]"
                   src={`https://image.tmdb.org/t/p/w500${item?.backdrop_path}`}
@@ -58,10 +68,15 @@ const Deneme = ({ title, fetchURL }) => {
                 </div>
               </div>
             </div>
-            </SwiperSlide>
+
           ))}
-       
-      </Swiper>
+        </div>
+        <button onClick={btnBackHandle} className="swiper-button-next absolute z-10 right-0 hover:opacity-100 group-hover:block bg-[#00000090] top-0 bottom-0 text-white"><ArrowRight /></button>
+      </div>
+
+
+
+
     </div>
 
 

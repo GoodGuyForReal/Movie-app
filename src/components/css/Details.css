@@ -10,40 +10,6 @@
     gap: 20px;
 }
 
-.detailsVideos {
-    scrollbar-width: auto;
-    scrollbar-color: #c4c4c4 #000000;
-}
-
-/* Chrome, Edge, and Safari */
-.detailsVideos::-webkit-scrollbar {
-    width: 6px;
-}
-
-.detailsVideos::-webkit-scrollbar-track {
-    background: #131313;
-    border-radius: 50px;
-}
-
-.detailsVideos::-webkit-scrollbar-thumb {
-    background-color: #ffffff;
-    border-radius: 10px;
-}
-
-.swiper-button-next,
-.swiper-button-prev {
-   outline: none;
-}
-
-
-div.swiper-button-next, div.swiper-button-prev {
-  top: 70%
-}
-
-
-/* .actAvatar{
-    background-image: url('../assets/profile-user.png');
-} */
 
 @media (max-width:950px) {
 

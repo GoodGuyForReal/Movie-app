@@ -10,9 +10,12 @@ import MoviCard from '../MoviCard'
 import PersonCard from '../PersonCard'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation } from 'swiper'
+import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper'
 import 'swiper/css'
 import 'swiper/css/free-mode'
+import ArrowRight from '../assets/ArrowRight'
+import ArrowLeft from '../assets/ArrowLeft'
+
 
 
 const MoviePageHero = () => {
@@ -133,10 +136,21 @@ const MoviePageHero = () => {
   const trailerBtnHandlerClose = () => {
     setToggle(true)
   }
-
   //? Trailer PopUp Ends
 
+  const box = document.querySelector('.detailsVideos');
 
+  const btnNextHandle = () => {
+    let width = box.clientWidth
+    box.scrollLeft = box.scrollLeft - width;
+    console.log(width)
+  }
+
+  const btnBackHandle = () => {
+    let width = box.clientWidth
+    box.scrollLeft = box.scrollLeft + width;
+    console.log(width)
+  }
 
 
 
@@ -283,73 +297,34 @@ const MoviePageHero = () => {
             </div>
           </div>
 
-          {/* {slicevideo.length === 0 ? null : <div className="videos text-white text-[32px] font-semibold   mb-3">
+
+          {slicevideo.length === 0 ? null : <div className="videos text-white text-[32px] font-semibold   mb-3">
             <h1>Videos <span className='text-slate-400 text-[24px] font-normal'>(+{slicevideo.length})</span></h1>
-            <div className='detailsVideos sm:scrollbar-hide flex gap-7 overflow-x-auto mt-4 pb-7'>
 
-              {slicevideo.map((item, id) => (
-                <div key={id}>
-                  <iframe src={`https://www.youtube.com/embed/${item?.key}`}
-                    frameBorder='0'
-                    allow='autoplay; encrypted-media'
-                    allowFullScreen
-                    title='video'
-                    className='bg-slate-400 rounded-xl'
-                    height={'400px'}
-                    width={'500px'}
-                  />
-
-                  <p className='text-white text-[18px] mt-3 w-[60%]'>{item?.name}</p>
-                </div>
-              ))}
-
-            </div>
-          </div>} */}
-
-
-
-          <div className="videos text-white text-[32px] font-semibold   mb-3">
-            <h1>Videos <span className='text-slate-400 text-[24px] font-normal'>(+{slicevideo.length})</span></h1>
-            <div className='detailsVideos sm:scrollbar-hide flex gap-7 overflow-x-auto mt-4 pb-7'>
-
-
-              <Swiper
-                modules={[Navigation]}
-                className='mySwiper'
-                speed={800}
-                slidesPerView={2.8}
-                navigation
-              >
-
+            <div className='flex relative w-full group '>
+              <button onClick={btnNextHandle} className="swiper-button-prev group-hover:block  hover:opacity-100 absolute left-0 z-10 bg-[#00000068] top-0 bottom-[15%]  text-white"> <ArrowLeft /> </button>
+              <div className='detailsVideos scrollbar-hide flex w-full gap-7 overflow-x-auto mt-4 pb-7 scroll-smooth'>
                 {slicevideo.map((item, id) => (
-                  <SwiperSlide key={id}>
-                    <div key={id}>
-                      <iframe src={`https://www.youtube.com/embed/${item?.key}`}
-                        frameBorder='0'
-                        allow='autoplay; encrypted-media'
-                        allowFullScreen
-                        title='video'
-                        className='bg-slate-400 rounded-xl'
-                        height={'400px'}
-                        width={'500px'}
-                      />
-                      <p className='text-white text-[18px] mt-3 w-[60%]'>{item?.name}</p>
-                    </div>
-                  </SwiperSlide>
+                  <div key={id}>
+                    <iframe src={`https://www.youtube.com/embed/${item?.key}`}
+                      frameBorder='0'
+                      allow='autoplay; encrypted-media'
+                      allowFullScreen
+                      title='video'
+                      className='bg-[#d5d5d5] rounded-xl'
+                      height={'400px'}
+                      width={'500px'}
+                    />
+                    <p className='text-white text-[18px] mt-3 w-[60%]'>{item?.name}</p>
+                  </div>
                 ))}
-                <div class="swiper-button-prev bg-white">NEXT</div>
-                <div class="swiper-button-next bg-white">BACK</div>
-              </Swiper>
-
-
-
-
-
-
-
-
+              </div>
+              <button onClick={btnBackHandle} className="swiper-button-next absolute z-10 right-0 hover:opacity-100 group-hover:block bg-[#00000068] top-0 bottom-[15%] text-white"><ArrowRight /></button>
             </div>
-          </div>
+
+
+          </div>}
+
 
           <div>
             {slicerecom.length === 0 ? null : <div className="recomanded  py-10">
