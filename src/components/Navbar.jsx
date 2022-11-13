@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import LogoIcon from "./assets/LogoIcon";
 
 const Navbar = () => {
@@ -20,6 +20,10 @@ const Navbar = () => {
 
               <li className="hover:text-[#dbdbdb]">
                 <NavLink to={'/Discover'} className="block py-2 pr-4 pl-3">Discover</NavLink>
+              </li>
+              
+              <li className="hover:text-[#dbdbdb]">
+                <NavLink to={'/SignUp'} className="block py-2 pr-4 pl-3">SignUp</NavLink>
               </li>
 
             </ul>

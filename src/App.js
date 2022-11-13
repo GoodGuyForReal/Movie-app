@@ -7,20 +7,24 @@ import Discover from "./components/pages/Discover";
 import { request } from "./Request";
 import ScrollToTop from "./components/ScrollToTop";
 import Person from "./components/pages/Person";
+import SignUp from "./components/pages/SignUp";
+import { AuthContextProvider } from "./context/AuthContext";
 
 function App() {
   return (
     <div>
-
-      <Navbar />
-      <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/Discover" element={<Discover fetchURL={request.requestPopular} />} />
-        <Route path=":id" element={<MoviePageHero />} />
-        <Route path="/Person/:id" element={<Person />} />
-      </Routes>
-      <Footer />
+      <AuthContextProvider>
+        <Navbar />
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/SignUp" element={<SignUp />} />
+          <Route path="/Discover" element={<Discover fetchURL={request.requestPopular} />} />
+          <Route path=":id" element={<MoviePageHero />} />
+          <Route path="/Person/:id" element={<Person />} />
+        </Routes>
+        <Footer />
+      </AuthContextProvider>
     </div>
   );
 }
