@@ -9,8 +9,9 @@ import ScrollToTop from "./components/ScrollToTop";
 import Person from "./components/pages/Person";
 import SignUp from "./components/pages/SignUp";
 import { AuthContextProvider } from "./context/AuthContext";
-import SignIn from "./components/pages/SignIn";
 import Account from "./components/pages/Account";
+import SignInPage from "./components/pages/SignIn";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
@@ -21,8 +22,14 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/SignUp" element={<SignUp />} />/
-          <Route path="/SignIn" element={<SignIn />} />
-          <Route path="/Account" element={<Account />} />
+          <Route path="/SignIn" element={<SignInPage />} />
+
+          <Route path="/Account" element={
+            <ProtectedRoute>
+              <Account />
+            </ProtectedRoute>
+          } />
+
           <Route path="/Discover" element={<Discover fetchURL={request.requestPopular} />} />
           <Route path=":id" element={<MoviePageHero />} />
           <Route path="/Person/:id" element={<Person />} />

@@ -29,7 +29,7 @@ export function AuthContextProvider({ children }) {
 
 
     function LogOut() {
-        return LogOut(auth)
+        return signOut(auth)
     }
 
     return (
