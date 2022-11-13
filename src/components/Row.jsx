@@ -4,10 +4,6 @@ import { PlayIcon } from './assets/PlayIcon'
 import { useNavigate } from "react-router-dom";
 import './css/Row.css'
 
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { FreeMode } from 'swiper'
-import 'swiper/css'
-import 'swiper/css/free-mode'
 import ArrowLeft from "./assets/ArrowLeft";
 import ArrowRight from "./assets/ArrowRight";
 

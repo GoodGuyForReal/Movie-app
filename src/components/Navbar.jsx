@@ -26,6 +26,10 @@ const Navbar = () => {
                 <NavLink to={'/SignUp'} className="block py-2 pr-4 pl-3">SignUp</NavLink>
               </li>
 
+              <li className="hover:text-[#dbdbdb]">
+                <NavLink to={'/SignIn'} className="block py-2 pr-4 pl-3">SignIn</NavLink>
+              </li>
+
             </ul>
           </div>
         </div>

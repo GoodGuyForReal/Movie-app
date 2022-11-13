@@ -9,10 +9,6 @@ import { UserIcon, UserIconSm } from '../assets/UserIcon'
 import MoviCard from '../MoviCard'
 import PersonCard from '../PersonCard'
 
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper'
-import 'swiper/css'
-import 'swiper/css/free-mode'
 import ArrowRight from '../assets/ArrowRight'
 import ArrowLeft from '../assets/ArrowLeft'
 
@@ -137,22 +133,6 @@ const MoviePageHero = () => {
     setToggle(true)
   }
   //? Trailer PopUp Ends
-
-  
-
-  // const btnNextHandle = () => {
-  //   const box = document.querySelector('.detailsVideos');
-  //   let width = box.clientWidth
-  //   box.scrollLeft = box.scrollLeft - width;
-  //   console.log(width)
-  // }
-
-  // const btnBackHandle = () => {
-  //   const box = document.querySelector('.detailsVideos');
-  //   let width = box.clientWidth
-  //   box.scrollLeft = box.scrollLeft + width;
-  //   console.log(width)
-  // }
 
 
   const btnNextHandle = () => {
