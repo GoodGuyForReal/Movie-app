@@ -12,6 +12,7 @@ import { AuthContextProvider } from "./context/AuthContext";
 import Account from "./components/pages/Account";
 import SignInPage from "./components/pages/SignIn";
 import ProtectedRoute from "./components/ProtectedRoute";
+import MoviCard from "./components/MoviCard";
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/SignUp" element={<SignUp />} />/
           <Route path="/SignIn" element={<SignInPage />} />
-
+          <Route path="/card" element={<MoviCard />} />
           <Route path="/Account" element={
             <ProtectedRoute>
               <Account />
@@ -31,7 +32,7 @@ function App() {
           } />
 
           <Route path="/Discover" element={<Discover fetchURL={request.requestPopular} />} />
-          <Route path=":id" element={<MoviePageHero />} />
+          <Route path="/MoviePage/:id" element={<MoviePageHero />} />
           <Route path="/Person/:id" element={<Person />} />
         </Routes>
         <Footer />

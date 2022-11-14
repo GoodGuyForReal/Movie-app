@@ -118,7 +118,7 @@ const MoviePageHero = () => {
   //? Cast end
 
   const reyear = () => {
-    const year = details.release_date;
+    const year = details?.release_date;
     return year.slice(0, 4);
   }
   console.log(reyear());
