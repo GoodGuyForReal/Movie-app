@@ -5,7 +5,7 @@ import '../css/Details.css'
 import axios from 'axios'
 import { key } from '../../Request'
 import { PlayIcon, DarkPlayIcon } from '../assets/PlayIcon'
-import { UserIcon, UserIconSm } from '../assets/UserIcon'
+import { UserIconSm } from '../assets/UserIcon'
 import MoviCard from '../MoviCard'
 import PersonCard from '../PersonCard'
 

@@ -32,7 +32,7 @@ function App() {
           } />
 
           <Route path="/Discover" element={<Discover fetchURL={request.requestPopular} />} />
-          <Route path="/MoviePage/:id" element={<MoviePageHero />} />
+          <Route path=":id" element={<MoviePageHero />} />
           <Route path="/Person/:id" element={<Person />} />
         </Routes>
         <Footer />

@@ -22,7 +22,11 @@ const MoviCard = ({ item, id }) => {
                     id: item?.id,
                     title: item?.title,
                     poster_path: item?.poster_path,
-                    vote_average: item?.vote_average
+                    vote_average: item?.vote_average,
+                    genre_ids : item?.genre_ids,
+                    overview : item?.overview,
+                    backdrop_path : item?.backdrop_path,
+                    release_date : item?.release_date,
                 })
             })
         } else {
@@ -54,7 +58,7 @@ const MoviCard = ({ item, id }) => {
                         <p className="text-white w-full text-center font-semibold text-[22px] px-3 mb-3">{item?.title}</p>
                         <div className="flex w-full justify-center gap-3">
 
-                            <button onClick={() => navigate(`/MoviePage/${item?.id}`, { state: item })} className="py-3 px-7 bg-[#ffffff74] text-white font-semibold text-[13px] rounded-[12px] backdrop-blur-md flex items-center text-center hover:bg-[#ffffffa0] hover:transition-[300ms]"><PlayIcon />Watch Now</button>
+                            <button onClick={() => navigate(`/${item?.id}`, { state: item })} className="py-3 px-7 bg-[#ffffff74] text-white font-semibold text-[13px] rounded-[12px] backdrop-blur-md flex items-center text-center hover:bg-[#ffffffa0] hover:transition-[300ms]"><PlayIcon />Watch Now</button>
                             <button onClick={saveShow} className="py-3 px-7 bg-[#ffffff00] text-white font-semibold text-[13px] rounded-[12px] backdrop-blur-md border flex items-center text-center hover:bg-[#ffffff] hover:text-black hover:duration-300">{!like ? 'Save' : 'Saved'}</button>
 
                         </div>
