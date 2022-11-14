@@ -201,7 +201,7 @@ const MoviePageHero = () => {
                 {/* imdb */}
                 <p className="py-3 px-9 bg-[#00000015] border text-white font-semibold text-[13px] rounded-[12px] backdrop-blur-[2px]">{reyear()}</p>
 
-                <button className="py-3 px-9 bg-[#ffffff] text-black font-semibold text-[13px] border rounded-[12px] hover:bg-[#e7e7e7]">Overview</button>
+                <button className="py-3 px-9 bg-[#ffffff] text-black font-semibold text-[13px] border rounded-[12px] hover:bg-[#e7e7e7]">Save</button>
 
               </div>
             </div>

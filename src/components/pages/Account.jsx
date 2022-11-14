@@ -34,8 +34,8 @@ const Account = () => {
         try {
             const result = movies.filter((item) => item.id !== passedid)
             console.log(result)
-            await updateDoc(moviRef , {
-                savedShow : result
+            await updateDoc(moviRef, {
+                savedShow: result
             })
 
         } catch (error) {
@@ -51,7 +51,7 @@ const Account = () => {
 
             <div className="flex justify-center items-center">
                 <div className="flex flex-wrap gap-6 justify-center items-center ">
-                    {movies.map((item, id) => (
+                    {movies === undefined ? <h1 className='text-white'>Sepet bos aga</h1> : movies.map((item, id) => (
 
                         <div key={id} className=" rounded-[35px] " >
 
@@ -82,6 +82,7 @@ const Account = () => {
 
                         </div>
                     ))}
+
                 </div>
 
             </div>
