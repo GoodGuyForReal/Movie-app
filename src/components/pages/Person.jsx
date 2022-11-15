@@ -12,6 +12,7 @@ const Person = () => {
   const [personCredits, setPersonCredits] = useState([])
   const [creditlimt, setCreditlimt] = useState(10)
   const [showMore, setShowMore] = useState(false);
+  const [biolengt, setBiolengt] = useState('')
 
 
 
@@ -64,12 +65,6 @@ const Person = () => {
     }
   };
 
-  const age = (i) => {
-    const year = i;
-    return year.slice(0, 4);
-  }
-
-
   const LoadHandler = () => {
     setCreditlimt(pre => pre + 10)
   }
@@ -77,6 +72,19 @@ const Person = () => {
   const LessHandler = () => {
     setCreditlimt(10)
   }
+
+  const turncatehide = (str, num) => {
+    if (str?.length < num) {
+      return str;
+    }
+  };
+
+  const abc = (str) => {
+    if (str?.length === 0) {
+      return null;
+    }
+  }
+
 
 
 
@@ -94,14 +102,13 @@ const Person = () => {
             <h1 className='text-[38px] font-medium '>{perdetails?.name}</h1>
             <p className=''>{perdetails?.birthday}</p>
             <p className=''>{perdetails?.place_of_birth}</p>
-            <div>
-              {/*todo: TEXTI ARRAY YE CEVIR SONRA LENGTINI ALIP BUTONU GIZLEYEBILIRSIN */}
-              {showMore ? <p className='w-[90%] leading-[190%] '>{perdetails?.biography}</p> : turncate(perdetails?.biography, 800)}
-              {/* <p className='w-[90%] leading-[190%] '>{perdetails?.biography}</p> */}
-              {perdetails?.biography < 800 ? null : <button onClick={() => setShowMore(!showMore)} className='underline'>{!showMore ? '...Show More' : '...Show less'}</button>}
-            </div>
-          </div>
 
+            {perdetails?.biography === "" ? null : <div>
+              {showMore ? <p className='w-[90%] leading-[190%] '>{perdetails?.biography}</p> : turncate(perdetails?.biography, 800)}
+              {turncatehide(perdetails?.biography, 800) || abc(perdetails?.biography) ? null : <button onClick={() => setShowMore(!showMore)} className='underline'>{!showMore ? '...Show More' : '...Show less'}</button>}
+            </div>}
+
+          </div>
         </div>
 
         <div className='PersonBottom py-20 flex flex-col gap-5'>
