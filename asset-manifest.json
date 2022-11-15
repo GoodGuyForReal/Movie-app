@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/goodguyforreal.github.io/Movie-app/static/css/main.9ee90107.css",
-    "main.js": "/goodguyforreal.github.io/Movie-app/static/js/main.997e9929.js",
-    "index.html": "/goodguyforreal.github.io/Movie-app/index.html",
-    "main.9ee90107.css.map": "/goodguyforreal.github.io/Movie-app/static/css/main.9ee90107.css.map",
-    "main.997e9929.js.map": "/goodguyforreal.github.io/Movie-app/static/js/main.997e9929.js.map"
+    "main.css": "/GoodGuyForReal/Movie-app.git/static/css/main.9ee90107.css",
+    "main.js": "/GoodGuyForReal/Movie-app.git/static/js/main.c31173f9.js",
+    "index.html": "/GoodGuyForReal/Movie-app.git/index.html",
+    "main.9ee90107.css.map": "/GoodGuyForReal/Movie-app.git/static/css/main.9ee90107.css.map",
+    "main.c31173f9.js.map": "/GoodGuyForReal/Movie-app.git/static/js/main.c31173f9.js.map"
   },
   "entrypoints": [
     "static/css/main.9ee90107.css",
-    "static/js/main.997e9929.js"
+    "static/js/main.c31173f9.js"
   ]
 }
