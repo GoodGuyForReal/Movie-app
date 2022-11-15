@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/GoodGuyForReal.github.io/Movie-app/static/css/main.9ee90107.css",
+    "main.js": "/GoodGuyForReal.github.io/Movie-app/static/js/main.0fb660f1.js",
+    "index.html": "/GoodGuyForReal.github.io/Movie-app/index.html",
+    "main.9ee90107.css.map": "/GoodGuyForReal.github.io/Movie-app/static/css/main.9ee90107.css.map",
+    "main.0fb660f1.js.map": "/GoodGuyForReal.github.io/Movie-app/static/js/main.0fb660f1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9ee90107.css",
+    "static/js/main.0fb660f1.js"
+  ]
+}
