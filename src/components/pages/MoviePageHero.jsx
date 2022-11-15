@@ -119,7 +119,7 @@ const MoviePageHero = () => {
 
   const reyear = () => {
     const year = details?.release_date;
-    return year
+    return year.slice(0, 4);
   }
   console.log(reyear());
 
@@ -196,7 +196,7 @@ const MoviePageHero = () => {
                 {directing[0]?.name ? <p className="py-3 px-9 bg-[#00000015] border text-white font-semibold text-[13px] rounded-[12px] backdrop-blur-[2px] ">By <span className='underline'>{directing[0]?.name}</span></p> : null}
 
                 {/* Year */}
-                <p className="py-3 px-9 bg-[#00000015] border text-white font-semibold text-[13px] rounded-[12px] backdrop-blur-[2px]">IMDB: {details.vote_average.toFixed(1)}</p>
+                <p className="py-3 px-9 bg-[#00000015] border text-white font-semibold text-[13px] rounded-[12px] backdrop-blur-[2px]">IMDB: {details?.vote_average.toFixed(1)}</p>
 
                 {/* imdb */}
                 <p className="py-3 px-9 bg-[#00000015] border text-white font-semibold text-[13px] rounded-[12px] backdrop-blur-[2px]">{reyear()}</p>
