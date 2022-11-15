@@ -57,7 +57,6 @@ const Main = () => {
                 </div>
 
                 <div className="flex gap-5 sm:justify-between">
-                  <button className="text-black bg-white py-2 px-8 rounded-[15px] hover:bg-black hover:text-white hover:transition-[300ms]">Play</button>
                   <button onClick={() => navigate(`/${movie?.id}`, { state: movie })} className="text-white bg-none border py-2 px-8 rounded-[15px] hover:bg-white hover:text-black hover:transition-[300ms]">Details</button>
                 </div>
               </div>

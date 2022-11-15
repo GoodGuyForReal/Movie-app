@@ -7,11 +7,11 @@ import { arrayUnion, doc, updateDoc } from 'firebase/firestore';
 
 
 const MoviCard = ({ item, id }) => {
-    const [like, setLike] = useState(false)
-    const navigate = useNavigate();
-    const [saved, setSaved] = useState(false)
     const { user } = UserAuth();
-   
+    const navigate = useNavigate();
+    const [like, setLike] = useState(false)
+    
+    const [saved, setSaved] = useState(false)
     const movieID = doc(db, 'users', `${user?.email}`)
     const saveShow = async () => {
         if (user?.email) {
