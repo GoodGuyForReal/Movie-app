@@ -44,14 +44,24 @@ const Account = () => {
 
     }
 
+    const rndmheroimg = movies[Math.floor(Math.random() * movies.length)]
+    console.log(rndmheroimg?.backdrop_path);
+    const bgdropURL = `https://image.tmdb.org/t/p/original${rndmheroimg?.backdrop_path}`
 
     return (
-        <div className='h-[100vh]'>
-            <h1 className='text-white text-[200px] font-medium'>Account</h1>
+        <div>
+            <div className='relative h-[70vh] flex items-center w-full'>
+                <div className='absolute z-30 px-32'>
+                    <h1 className=' text-white text-[150px] leading-[130%] font-bold'>Favorites</h1>
+                    <p className='text-white text-[18px] ml-2 '>Don't worry we keep your movies fresh and warm here</p>
+                </div>
+                <div className="absolute z-20  bottom-0 top-[10%] w-full  bg-gradient-to-t  from-black"></div>
+                <img src={bgdropURL} alt={bgdropURL} className='absolute object-cover w-full h-full object-top' />
+            </div>
 
-            <div className="flex justify-center items-center">
+            <div className="flex justify-center items-center pb-10">
                 <div className="flex flex-wrap gap-6 justify-center items-center ">
-                    {movies === undefined || movies === 0  ? <h1 className='text-white'>Sepet bos aga</h1> : movies.map((item, id) => (
+                    {movies === undefined || movies === 0 ? <h1 className='text-white'>Sepet bos aga</h1> : movies.map((item, id) => (
 
                         <div key={id} className=" rounded-[35px] " >
 
