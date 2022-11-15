@@ -119,7 +119,7 @@ const MoviePageHero = () => {
 
   const reyear = () => {
     const year = details?.release_date;
-    return year.slice(0, 4);
+    return year
   }
   console.log(reyear());
 
