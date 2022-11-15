@@ -44,9 +44,21 @@ const Account = () => {
 
     }
 
-    const rndmheroimg = movies[Math.floor(Math.random() * movies.length)]
-    console.log(rndmheroimg?.backdrop_path);
-    const bgdropURL = `https://image.tmdb.org/t/p/original${rndmheroimg?.backdrop_path}`
+    
+
+    const abcds = () => {
+        if (movies.length > 0) {
+            const rndmheroimg = movies[Math.floor(Math.random() * movies.length)]
+            console.log(rndmheroimg?.backdrop_path);
+            return `https://image.tmdb.org/t/p/original${rndmheroimg?.backdrop_path}`
+        }else{
+          return `https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80`
+        }
+    }
+
+    
+
+
 
     return (
         <div>
@@ -56,12 +68,12 @@ const Account = () => {
                     <p className='text-white text-[18px] ml-2 '>Don't worry we keep your movies fresh and warm here</p>
                 </div>
                 <div className="absolute z-20  bottom-0 top-[10%] w-full  bg-gradient-to-t  from-black"></div>
-                <img src={bgdropURL} alt={bgdropURL} className='absolute object-cover w-full h-full object-top' />
+                <img src={abcds} alt={abcds} className='absolute object-cover w-full h-full object-top' />
             </div>
 
             <div className="flex justify-center items-center pb-10">
                 <div className="flex flex-wrap gap-6 justify-center items-center ">
-                    {movies === undefined || movies === 0 ? <h1 className='text-white'>Sepet bos aga</h1> : movies.map((item, id) => (
+                    {movies === undefined || movies === [] || movies === null ? <h1 className='text-white'>Its Empty</h1> : movies.map((item, id) => (
 
                         <div key={id} className=" rounded-[35px] " >
 
