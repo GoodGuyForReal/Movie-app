@@ -51,7 +51,7 @@ const Account = () => {
 
             <div className="flex justify-center items-center">
                 <div className="flex flex-wrap gap-6 justify-center items-center ">
-                    {movies === undefined ? <h1 className='text-white'>Sepet bos aga</h1> : movies.map((item, id) => (
+                    {movies === undefined || movies === 0  ? <h1 className='text-white'>Sepet bos aga</h1> : movies.map((item, id) => (
 
                         <div key={id} className=" rounded-[35px] " >
 
@@ -73,7 +73,7 @@ const Account = () => {
                                     <div className="flex w-full justify-center gap-3">
 
                                         <button onClick={() => navigate(`/${item?.id}`, { state: item })} className="py-3 px-7 bg-[#ffffff74] text-white font-semibold text-[13px] rounded-[12px] backdrop-blur-md flex items-center text-center hover:bg-[#ffffffa0] hover:transition-[300ms]">Watch Now</button>
-                                        <button onClick={() => deleteItem} className="py-3 px-7 bg-[#ffffff00] text-white font-semibold text-[13px] rounded-[12px] backdrop-blur-md border flex items-center text-center hover:bg-[#ffffff] hover:text-black hover:duration-300">{!like ? 'Save' : 'Saved'}</button>
+                                        <button onClick={() => deleteItem(item.id)} className="py-3 px-7 bg-[#ffffff00] text-white font-semibold text-[13px] rounded-[12px] backdrop-blur-md border flex items-center text-center hover:bg-[#ffffff] hover:text-black hover:duration-300">{!like ? 'Save' : 'Saved'}</button>
 
                                     </div>
                                 </div>
