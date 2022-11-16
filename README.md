@@ -1,1 +1,1 @@
-live : <a href='https://loopymovie.netlify.app/'>https://loopymovie.netlify.app/</a>
+live : <a href='https://loopymovie.netlify.app/' target="_blank">https://loopymovie.netlify.app/</a>
